@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Spring Security - OAuth 2.0 Login</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+<div style="float: right" th:fragment="logout">
+    <div style="float:left">
+        <span style="font-weight:bold">User: </span><span th:text="${userName}"></span>
+    </div>
+    <div style="float:none">&nbsp;</div>
+    <div style="float:right">
+        <a th:href="@{/logout}">Log Out</a>
+    </div>
+</div>
+<h1>OAuth 2.0 Login with Spring Security</h1>
+<div>
+    You are successfully logged in <span style="font-weight:bold" th:text="${userName}"></span>
+    via the OAuth 2.0 Client <span style="font-weight:bold" th:text="${clientName}"></span>
+</div>
+<div>&nbsp;</div>
+
+
+<br>
+<br>
+
+
+
+
+<h2>This is Travel Admin ( NRTA ) Spring Cloud Gateway default page</h2>
+
+<br>
+
+Please click below links to go to the final destination through this gateway:
+<br><br>
+
+<a href="http://localhost:9090/apigee-poc2/admin/employeeList"> admin sevice - employee list </a> <br>
+<a href="http://localhost:9090/apigee-poc2/employee/1"> regular use service - employee profile </a> <br>
+<a href="http://localhost:9090/echo"> echo service site </a>
+
+<br>
+<br>
+<br>
+
+
+
+
+
+
+<div>
+    <span style="font-weight:bold">User Attributes ( from Access Token ):</span>
+    <ul>
+        <li th:each="userAttribute : ${userAttributes}">
+            <span style="font-weight:bold" th:text="${userAttribute.key}"></span>: <span th:text="${userAttribute.value}"></span>
+        </li>
+    </ul>
+</div>
+
+
+
+</body>
+</html>
